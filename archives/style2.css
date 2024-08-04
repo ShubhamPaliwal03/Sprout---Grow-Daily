@@ -1,0 +1,538 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+body
+{
+	/* font-family: sans-serif; */
+	font-family: 'Poppins', sans-serif;
+	margin-top: -1rem; /**/
+	/* overflow: hidden;  */
+	user-select: none;
+}
+
+#grid
+{
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto auto;
+}
+
+#navbar-top
+{
+	/* width: 80%; */
+	width: 76.7rem;
+	height: 3.5rem;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #f3f3f3;
+	margin: 2rem auto;
+	margin-left: 18rem;
+	border-radius: 15px;
+}
+
+#side-navbar
+{
+	background-color: #f3f3f3;
+	width: 15rem;
+	height: 23rem;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+#side-nav-items-container > div
+{
+	height: 4rem;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+#side-nav-items-container > div:first-child
+{
+	background-color: #020202;
+	color: white;
+}
+
+#side-nav-items-container
+{
+	margin: 0 1.5rem;
+	width: 80%;
+}
+
+#side-nav-items-container > div > *
+{
+	margin-right: 0.7rem;
+}
+
+#logo-flat
+{
+	width: 10rem;
+}
+
+#clock-container
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	row-gap: 2rem;
+	height: 18rem;
+	width: 20rem;
+	background-color: #f3f3f3;
+	border-radius: 15px;
+	text-align: center;
+	/* color: #FEFEFE; */
+	/* font-family: 'Poppins', sans-serif; */
+	overflow: hidden;
+}
+#clock-canvas
+{
+	object-fit: contain;
+	width: 100%;
+	margin: 0px auto;
+	display: block;
+	width: 35rem;
+	background-color: #f3f3f3;
+}
+#work-timer-container
+{
+	background-color: #f3f3f3;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
+	width: 20rem;
+	height: 18rem;
+	border-radius: 15px;
+	overflow: hidden;
+}
+#work-timer-container > .column-flex-container
+{
+	font-size: 1.4rem;
+}
+.work-status-container
+{
+	display: flex;
+	align-items: center;
+	margin-left: -0.8rem;
+	margin-bottom: -1rem;
+}
+.work-status-container > dotlottie-player
+{
+	filter: hue-rotate(220deg); /* paused */
+}
+/* #work-timer-container > *
+{
+	scale: 0.9;
+} */
+#timer-container
+{
+	gap: 1rem;
+}
+.column-flex-container
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.working-timer-control-btns
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	cursor: pointer;
+}
+#play-pause-btn-container
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* background-color: white; */
+	height: 2rem;
+	width: 2rem;
+	/* border: 2px solid rgb(40, 40, 40); */
+	border-radius: 1rem;
+	/* background-color: #db2424; */
+	background-color: #00ac5c;
+  	color: white;
+}
+#start-end-work-btn
+{
+	padding: 0.5rem;
+	border-radius: 1rem;
+	color: white;
+	/* background-color: #db2424; */
+	background-color: #00ac5c;
+}
+#current-task-and-daily-progress-container
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 5rem;
+	background-color: #f3f3f3;
+	width: 34.7rem;
+	height: 18rem;
+	border-radius: 15px;
+}
+#current-task-and-daily-progress-container .upper-div
+{
+	height: 50%;
+}
+#current-task-container
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#sub-tasks-container
+{
+	width: 85%;
+	height: 6rem;
+	overflow: auto;
+}
+#sub-tasks
+{
+	margin-left: 1rem;
+	color: #000000b5;
+}
+#sub-tasks > li:first-of-type
+{
+	text-decoration: line-through 2px;
+}
+#sub-tasks-heading
+{
+	margin-bottom: 0.5rem;
+}
+
+#todays-tasks-container
+{
+	background-color: #f3f3f3;
+	/* width: 60%;
+	height: 25rem; */
+	width: 57rem;
+  	height: 19.5rem;
+	border-radius: 15px;
+	padding: 1.5rem;
+	overflow: auto;
+}
+
+/* #todays-tasks-container > h3
+{
+
+} */
+
+.task-container
+{
+	background-color: white;
+	height: 6rem;
+	display: flex;
+	/* justify-content: space-around; */
+	align-items: center;
+	/* gap: 2rem; */
+	border-radius: 10px;
+	margin-top: 1.5rem;
+}
+
+.task-control-container
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	width: 40%;
+}
+
+.task-duration-container
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 0.5rem;
+}
+
+.task-duration-container > .task-time
+{
+	color: rgb(118, 117, 117);
+	font-size: 0.8rem;
+}
+
+.task-play-pause-btn-container
+{
+	/* background-color: #4e4ff8; */
+	background-color: #09f;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 2rem;
+	width: 2rem;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.task-details-container
+{
+	display: flex;
+	width: 100%;
+	gap: 1.5rem;
+	justify-content: center;
+	align-items: center;
+}
+
+.task-name
+{
+	width: 43%;
+	overflow: scroll;
+}
+
+.task-progress-indicator svg
+{
+	position: relative;
+	top: 0.25rem;
+}
+
+.task-status-container
+{
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	gap: 1rem;
+	width: 25%;
+}
+
+.task-status-indicator
+{
+	height: 1rem;
+	width: 1rem;
+	border-radius: 50%;
+}
+
+.task-deadline
+{
+	padding: 0.5rem 1rem;
+	border-radius: 2rem;
+	font-size: 0.8rem;
+	width: 7rem;
+ 	text-align: center;
+}
+
+.exceeded-deadline
+{
+	background-color: #ffe6e1;
+	color: #ff6644;
+}
+
+.completed-deadline
+{
+	background-color: rgba(144, 238, 144, 0.505);
+	color: green;
+}
+
+.ongoing-deadline
+{
+	background-color: rgba(255, 186, 58, 0.534);
+	color: rgb(228, 126, 0);
+}
+
+.exceeded-status
+{
+	/* background-color: #ff6644; */
+	background-color: red;
+}
+
+.completed-status
+{
+	background-color: green;
+}
+
+.ongoing-status
+{
+	background-color: darkorange;
+}
+
+.ldBar
+{
+	display: flex;
+}
+
+.ldBar-label.task-progress-indicator::after
+{
+	content: "% complete";
+}
+
+.ldBar path.mainline 
+{
+    stroke-width: 10;
+	/* stroke: #4e4ff8; */
+    stroke: #09f;
+    stroke-linecap: round;
+}
+
+.ldBar path.baseline 
+{
+	stroke-width: 14;
+	/* stroke: #f1f2f3; */
+	/* stroke: gray; */
+	stroke-width: 10;
+	stroke-linecap: round;
+}
+
+.task-progress-indicator path.baseline
+{
+	stroke: #f1f2f3;
+}
+
+.todays-progress-container
+{
+	background: #f3f3f3;
+	width: 17rem;
+	height: 19.5rem;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.todays-progress-container > .column-flex-container
+{
+	gap: 1rem;
+}
+
+.calendar-container 
+{
+    background: #f3f3f3;
+    width: 25rem;
+	height: 28rem;
+    border-radius: 10px;
+    /* box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); */
+	scale: 0.7;
+	border-radius: 1rem;
+}
+ 
+.calendar-container header 
+{
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+ 
+header .calendar-navigation 
+{
+    display: flex;
+}
+ 
+header .calendar-navigation span 
+{
+    height: 2.375rem;
+    width: 2.375rem;
+    margin: 0 1px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 2.375rem;
+    border-radius: 50%;
+    user-select: none;
+    color: #aeabab;
+    font-size: 1.9rem;
+}
+ 
+.calendar-navigation span:last-child 
+{
+    margin-right: -0.8rem;
+}
+ 
+header .calendar-navigation span:hover 
+{
+    background: #f2f2f2;
+}
+ 
+header .calendar-current-date 
+{
+    font-weight: 500;
+    font-size: 1.45rem;
+}
+ 
+.calendar-body 
+{
+    padding: 1.25rem;
+}
+ 
+.calendar-body ul 
+{
+    list-style: none;
+    flex-wrap: wrap;
+    display: flex;
+    text-align: center;
+}
+ 
+.calendar-body .calendar-dates 
+{
+    margin-bottom: 1.25rem;
+}
+ 
+.calendar-body li 
+{
+    width: calc(100% / 7);
+    font-size: 1rem;
+    color: #414141;
+}
+ 
+.calendar-body .calendar-weekdays li 
+{
+    cursor: default;
+    font-weight: 500;
+}
+ 
+.calendar-body .calendar-dates li 
+{
+    margin-top: 1.875rem;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+ 
+.calendar-dates li.inactive 
+{
+    color: #aaa;
+}
+ 
+.calendar-dates li.active 
+{
+    color: #fff;
+}
+ 
+.calendar-dates li::before 
+{
+    position: absolute;
+    content: "";
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+ 
+.calendar-dates li.active::before 
+{
+    background: #00ac5c;
+}
+ 
+.calendar-dates li:not(.active):hover::before 
+{
+    background: #e4e1e1;
+}

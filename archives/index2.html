@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./libraries/loading-bar/loading-bar.css">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style2.css">
+    <title>Sprout - Grow Daily</title>
+    <style>
+
+        #grid-5
+        {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto auto;
+        }
+
+        #grid-3
+        {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto;
+        }
+
+        #grid-2
+        {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto auto;
+        }
+
+        #grid-4
+        {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="grid-5">
+        <div id="side-navbar">
+            <img id="logo-flat" src="./resources/images/logo-flat-transparent.png" alt="Sprout">
+            <div id="side-nav-items-container">
+                <div>
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </div>
+                <div>
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    Tasks
+                </div>
+                <div>
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Insights
+                </div>
+            </div>
+        </div>
+        <div id="grid-3">
+            <div id="grid-2">
+                <nav id="navbar-top">
+                    <div>Dashboard</div>
+                    <div>
+                        <span id="date-day">24th July</span>,
+                        <span id="time">03:25 PM</span>
+                    </div>
+                    <div>
+                        <span id="time-based-greeting">Good Evening</span>,
+                        <span id="greeting-user-firstname">Shubham</span>!
+                    </div>
+                </nav>
+                <div id="grid-1">
+                    <div id="clock-container">
+                        <canvas id="clock-canvas"></canvas>
+                    </div>
+                    <div id="work-timer-container">
+                        <div class="work-status-container">
+                            <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+                            <dotlottie-player src="https://lottie.host/8c66a76c-290b-4777-9630-546681c39af9/67SUTETa9T.json" background="transparent" speed="1" style="width: 2.5rem; height: 3rem;" loop autoplay></dotlottie-player>
+                            <!-- set filter: hue-rotate(212deg); when not working -->
+                            <span id="work-status">No Session Ongoing</span>
+                        </div>
+                        <div id="timer-container" class="column-flex-container">
+                            <span id="time-elapsed-doing-work">00:00:00</span> <!-- 5:25:05 -->
+                            <small>
+                                <p id="time-started-at">No Session Ongoing</p> <!-- Started at 10 AM -->
+                            </small>
+                        </div>
+                        <div class="working-timer-control-btns">
+                            <div id="play-pause-btn-container">
+                                <!-- <i class="fa-solid fa-play play-btn"></i> -->
+                                <i class="fa-solid fa-play play-btn" id="play-pause-btn"></i>
+                            </div>
+                            <div id="start-end-work-btn">
+                                Start Session
+                                <!-- End Session -->
+                            </div>
+                        </div>
+                    </div>
+                    <div id="current-task-and-daily-progress-container">
+                        <div id="current-task-container">
+                            <div class="upper-div">
+                                <div class="work-status-container">
+                                    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+                                    <dotlottie-player src="https://lottie.host/8c66a76c-290b-4777-9630-546681c39af9/67SUTETa9T.json" background="transparent" speed="1" style="width: 2.5rem; height: 3rem; filter: hue-rotate(240deg);" loop autoplay></dotlottie-player>
+                                    <!-- set filter: hue-rotate(212deg); when not working on any task -->
+                                    <span id="current-task-status">Ongoing</span>
+                                </div>
+                                <div id="current-task-and-subtasks-container">
+                                    <br>
+                                    <h3 id="current-task-name">Task : Solve a DSA Question</h3>
+                                    <br>
+                                    <ins><h4 id="sub-tasks-heading">Sub Tasks :</h4></ins>
+                                </div>    
+                            </div>
+                            <div id="sub-tasks-container">
+                                <ul id="sub-tasks">
+                                    <li>Make Logic</li>
+                                    <li>Dry Run</li>
+                                    <li>Implement Logic</li>
+                                    <li>Debug</li>
+                                    <li>Make Logic</li>
+                                    <li>Dry Run</li>
+                                    <li>Implement Logic</li>
+                                    <li>Debug</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="daily_progress_chart_container">
+                            <div class="ldBar label-center" id="circle" data-val="100" data-stroke-width="5" data-preset="circle" data-transition-in="ease"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="grid-4">
+            <div id="todays-tasks-container">
+                <h3>Today's Tasks</h3>
+                <div class="task-container">
+                    <div class="task-control-container">
+                        <div class="task-play-pause-btn-container">
+                            <i class="fa-solid fa-play task-play-btn"></i>
+                            <!-- <i class="fa-solid fa-pause pause-btn"></i> -->
+                        </div>
+                        <div class="task-duration-container">
+                            <div>Scheduled Time</div>
+                            <div class="task-time">
+                                <i class="fa-regular fa-clock"></i>
+                                <span class="start-time">9:00 am</span>
+                                -
+                                <span class="end-time">10:00 am</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-details-container">
+                        <div class="task-name">Solve Symmetric Trees Question On LeetCode</div>
+                        <div class="ldBar task-progress-indicator" data-val="100" data-stroke-width="5" data-preset="line" style="width: 20%;" data-transition-in="ease"></div>
+                        <div class="task-status-container">
+                            <div class="task-status-indicator completed-status"></div>
+                            <div class="task-deadline completed-deadline">
+                                Completed
+                                <!-- 1 hour left ongoing =>  orange border and same colored dark text -->
+                                <!-- Completed   complete => green border and same colored dark text -->
+                                <!-- 2 hours up  exceeded => red border and same colored dark text -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-container">
+                    <div class="task-control-container">
+                        <div class="task-play-pause-btn-container">
+                            <i class="fa-solid fa-play task-play-btn"></i>
+                            <!-- <i class="fa-solid fa-pause pause-btn"></i> -->
+                        </div>
+                        <div class="task-duration-container">
+                            <div>Scheduled Time</div>
+                            <div class="task-time">
+                                <i class="fa-regular fa-clock"></i>
+                                <span class="start-time">9:00 am</span>
+                                -
+                                <span class="end-time">10:00 am</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-details-container">
+                        <div class="task-name">Solve BST Question On LeetCode</div>
+                        <div class="ldBar task-progress-indicator" data-val="100" data-stroke-width="5" data-preset="line" style="width: 20%;" data-transition-in="ease"></div>
+                        <div class="task-status-container">
+                            <div class="task-status-indicator exceeded-status"></div>
+                            <div class="task-deadline exceeded-deadline">
+                                2 hours up
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-container">
+                    <div class="task-control-container">
+                        <div class="task-play-pause-btn-container">
+                            <i class="fa-solid fa-play task-play-btn"></i>
+                            <!-- <i class="fa-solid fa-pause pause-btn"></i> -->
+                        </div>
+                        <div class="task-duration-container">
+                            <div>Scheduled Time</div>
+                            <div class="task-time">
+                                <i class="fa-regular fa-clock"></i>
+                                <span class="start-time">9:00 am</span>
+                                -
+                                <span class="end-time">10:00 am</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-details-container">
+                        <div class="task-name">Solve Height Balanced BST Trees Question On LeetCode</div>
+                        <div class="ldBar task-progress-indicator" data-val="0" data-stroke-width="5" data-preset="line" style="width: 20%;" data-transition-in="ease"></div>
+                        <div class="task-status-container">
+                            <div class="task-status-indicator ongoing-status"></div>
+                            <div class="task-deadline ongoing-deadline">
+                                2 hours left
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-container">
+                    <div class="task-control-container">
+                        <div class="task-play-pause-btn-container">
+                            <i class="fa-solid fa-play task-play-btn"></i>
+                            <!-- <i class="fa-solid fa-pause pause-btn"></i> -->
+                        </div>
+                        <div class="task-duration-container">
+                            <div>Scheduled Time</div>
+                            <div class="task-time">
+                                <i class="fa-regular fa-clock"></i>
+                                <span class="start-time">9:00 am</span>
+                                -
+                                <span class="end-time">10:00 am</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-details-container">
+                        <div class="task-name">Solve Identical Trees Question On LeetCode</div>
+                        <div class="ldBar task-progress-indicator" data-val="50%" data-stroke-width="5" data-preset="line" style="width: 20%;" data-transition-in="ease"></div>
+                        <div class="task-status-container">
+                            <div class="task-status-indicator ongoing-status"></div>
+                            <div class="task-deadline ongoing-deadline">
+                                2 hours left
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="todays-progress-container">
+                <div class="column-flex-container">
+                    <h4>Today's Progress</h4>
+                    <div data-preset="circle" class="ldBar label-center" data-value="91" data-transition-in="ease"></div>
+                </div>
+                <div class="column-flex-container">
+                    <h4>Total Work Duration</h4>
+                    <!-- convert the total duration to seconds 
+        
+                        seconds in a day => 60*60*24 = 86400
+        
+                        % of number of seconds in a day = total_duration_in_seconds / 86400 * 100
+                    -->
+                    <div data-preset="circle" class="ldBar label-center" data-value="25" data-transition-in="ease"></div>
+                </div>
+            </div>
+            <div class="calendar-container">
+                <header class="calendar-header">
+                    <p class="calendar-current-date"></p>
+                    <div class="calendar-navigation">
+                        <span id="calendar-prev"class="material-symbols-rounded">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </span>
+                        <span id="calendar-next" class="material-symbols-rounded">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </span>
+                    </div>
+                </header>
+                <div class="calendar-body">
+                    <ul class="calendar-weekdays">
+                        <li>Sun</li>
+                        <li>Mon</li>
+                        <li>Tue</li>
+                        <li>Wed</li>
+                        <li>Thu</li>
+                        <li>Fri</li>
+                        <li>Sat</li>
+                    </ul>
+                    <ul class="calendar-dates"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./draw_component.js"></script>
+    <script src="./libraries_logic_script.js"></script>
+    <script src="./script.js"></script>
+    <script src="https://kit.fontawesome.com/4ca0345904.js" crossorigin="anonymous"></script>
+    <script src="./libraries/loading-bar/loading-bar.js"></script>
+    <!-- <script type="text/javascript" src="setuserdata.js"></script> -->
+</body>
+</html>

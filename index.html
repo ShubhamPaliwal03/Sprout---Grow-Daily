@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./libraries/loading-bar/loading-bar.css">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Sprout - Grow Daily</title>
+</head>
+<body>
+    <!-- Add New Task Pop Up -->
+    <div class="task-pop-up-outer-container">
+        <div class="task-pop-up-inner-container">
+            <form>
+                <div class="cancel-btn">
+                    <i class="fa-solid fa-xmark cancel-icon"></i>
+                </div>
+                <div class="heading-container inner-flex-container">
+                    Add New Task
+                </div>
+                <hr>
+                <div class="inner-flex-container" style="flex-direction: column;">
+                    <input type="text" name="task_title" class="task-title-input" placeholder="Write Your Task Name Here...">
+                    <hr>
+                    <div id="task-scheduled-time-input">
+                        <label>Start Time :
+                            <input type="time" id="start-time">
+                        </label>
+                        &nbsp;
+                        <label>
+                            End Time :
+                            <input type="time" id="end-time">
+                        </label>
+                    </div>
+                    <hr>
+                    <h4>Add Sub-Tasks</h4>
+                </div>
+                <div class="inner-flex-container" id="scrollable-add-task-container">
+                    <!-- <textarea name="task_content" class="task-content-textarea" placeholder="Say something..."></textarea> -->
+                    <ul id="subtasks-list">
+                        <li>
+                            <input type="text" class="subtask-field">
+                        </li>
+                    </ul>
+                    <div>
+                        <i class="fa-solid fa-plus" id="add-more-subtask-button" title="Add more subtask" tabindex="0" role="button" aria-label="Add more subtasks"></i>
+                    </div>
+                </div>
+                <hr>
+                <div class="inner-flex-container">
+                    <input type="button" value="Add Task" class="task-pop-up-modify-task-btn" name="create_task" disabled>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Set Up New Profile Pop Up -->
+    <div class="task-pop-up-outer-container">
+        <div class="task-pop-up-inner-container set-up-profile">
+            <div class="inner-container">
+                <h3>Welcome, New User</h3>
+                <hr>
+                <div id="form-outer-container">
+                    <form>
+                        <div class="inner-flex-container">
+                            <div>Set Up New Profile</div>
+                        </div>
+                        <div class="inner-flex-container">
+                            <input type="text" name="username" class="task-title-input">
+                        </div>
+                    </form>
+                    <div id="form-outer-container">
+                        <input type="button" id="create-profile-btn" value="Create Profile" class="task-pop-up-modify-task-btn" name="create_profile" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="app-container">
+
+        <nav id="navbar-top">
+            <div>Dashboard</div>
+            <div>
+                <span id="date-day"></span>, <!-- 24th July -->
+                <span id="time"></span> <!-- 03:25 PM -->
+            </div>
+            <div>
+                <span id="time-based-greeting"></span>, <!-- Good Morning -->
+                <span id="greeting-user-firstname"></span>! <!-- Shubham -->
+            </div>
+        </nav>
+        <div id="side-navbar">
+            <img id="logo-flat" src="./resources/images/logo-flat-transparent.png" alt="Sprout">
+            <div id="side-nav-items-container">
+                <div>
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </div>
+                <div>
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Insights
+                </div>
+                <div>
+                    <i class="fa-solid fa-user"></i>
+                    Profile
+                </div>
+                <!-- <div>
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    Tasks
+                </div> -->
+            </div>
+        </div>
+        <div id="clock-container">
+            <canvas id="clock-canvas"></canvas>
+        </div>
+        <div id="work-timer-container">
+            <div class="work-status-container">
+                <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+                <dotlottie-player src="https://lottie.host/8c66a76c-290b-4777-9630-546681c39af9/67SUTETa9T.json" background="transparent" speed="1" style="width: 2.5rem; height: 3rem;" loop autoplay></dotlottie-player>
+                <!-- set filter: hue-rotate(212deg); when not working -->
+                <span id="work-status">No Session Ongoing</span>
+            </div>
+            <div id="timer-container" class="column-flex-container">
+                <span id="time-elapsed-doing-work">00:00:00</span> <!-- 5:25:05 -->
+                <small>
+                    <p id="time-started-at">No Session Ongoing</p> <!-- Started at 10 AM -->
+                </small>
+            </div>
+            <div class="working-timer-control-btns">
+                <div id="play-pause-btn-container">
+                    <!-- <i class="fa-solid fa-play play-btn"></i> -->
+                    <i class="fa-solid fa-play play-btn" id="play-pause-btn"></i>
+                </div>
+                <div id="start-end-work-btn">
+                    Start Session
+                    <!-- End Session -->
+                </div>
+            </div>
+        </div>
+        <div id="current-task-and-daily-progress-container">
+            <div id="current-task-container">
+                <div class="upper-div">
+                    <div class="work-status-container">
+                        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+                        <dotlottie-player src="https://lottie.host/8c66a76c-290b-4777-9630-546681c39af9/67SUTETa9T.json" background="transparent" speed="1" style="width: 2.5rem; height: 3rem; filter: hue-rotate(240deg);" loop autoplay></dotlottie-player>
+                        <!-- set filter: hue-rotate(212deg); when not working on any task -->
+                        <span id="current-task-status">No Task Ongoing</span>
+                    </div>
+                    <div id="current-task-and-subtasks-container">
+                        <br>
+                        <h3 id="current-task-name"></h3> <!-- Task : Solve a DSA Question -->
+                        <br>
+                        <ins><h4 id="sub-tasks-heading">Sub Tasks :</h4></ins>
+                    </div>    
+                </div>
+                <div id="sub-tasks-container">
+                    <ul id="sub-tasks">
+                        <!-- <li>Make Logic</li>
+                        <li>Dry Run</li>
+                        <li>Implement Logic</li>
+                        <li>Debug</li>
+                        <li>Make Logic</li>
+                        <li>Dry Run</li>
+                        <li>Implement Logic</li>
+                        <li>Debug</li> -->
+                    </ul>
+                </div>
+            </div>
+            <div id="daily_progress_chart_container">
+                <div class="ldBar label-center" id="circle" data-value="0" data-stroke-width="5" data-preset="circle" data-transition-in="ease"></div>
+            </div>
+        </div>
+        <div class="calendar-container">
+            <header class="calendar-header">
+                <p class="calendar-current-date"></p>
+                <div class="calendar-navigation">
+                    <span id="calendar-prev"class="material-symbols-rounded">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </span>
+                    <span id="calendar-next" class="material-symbols-rounded">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </span>
+                </div>
+            </header>
+            <div class="calendar-body">
+                <ul class="calendar-weekdays">
+                    <li>Sun</li>
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wed</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                </ul>
+                <ul class="calendar-dates"></ul>
+            </div>
+        </div>
+        <div id="todays-tasks-container">
+            <div class="row-flex-container">
+                <h2>Today's Tasks</h2>
+                <div id="add-task-btn">+ Add Task</div>
+            </div>
+            <div id="all-tasks-container">
+            </div>
+            <!-- <div class="task-container">
+                <div class="task-control-container">
+                    <div class="task-play-pause-btn-container">
+                        <i class="fa-solid fa-play task-play-btn"></i>
+                        <i class="fa-solid fa-pause pause-btn"></i>
+                    </div>
+                    <div class="task-duration-container">
+                        <div>Scheduled Time</div>
+                        <div class="task-time">
+                            <i class="fa-regular fa-clock"></i>
+                            <span class="start-time">9:00 am</span>
+                            -
+                            <span class="end-time">10:00 am</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-details-container">
+                    <div class="task-name">Solve Symmetric Trees Question On LeetCode</div>
+                    <div class="ldBar task-progress-indicator" data-val="100" data-stroke-width="5" data-preset="line" style="width: 20%;" data-transition-in="ease"></div>
+                    <div class="task-status-container">
+                        <div class="task-status-indicator completed-status"></div>
+                        <div class="task-deadline completed-deadline">
+                            Completed
+                            1 hour left ongoing =>  orange border and same colored dark text
+                            Completed   complete => green border and same colored dark text
+                            2 hours up  exceeded => red border and same colored dark text
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div> -->
+        </div>
+        <div class="todays-progress-container">
+            <div class="column-flex-container">
+                <h4>Today's Progress</h4>
+                <div data-preset="circle" class="ldBar label-center" data-value="0" data-transition-in="ease" style="width: 70px;"></div>
+            </div>
+            <div class="column-flex-container">
+                <h4>Total Work Duration</h4>
+                <!-- convert the total duration to seconds 
+    
+                    seconds in a day => 60*60*24 = 86400
+    
+                    % of number of seconds in a day = total_duration_in_seconds / 86400 * 100
+                -->
+                <div id="total-work-duration-indicator" data-preset="circle" class="ldBar label-center" data-value="0" data-transition-in="ease" style="width: 70px;"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./draw_component.js"></script>
+    <script src="./libraries_logic_script.js"></script>
+    <script src="./script.js"></script>
+    <script src="https://kit.fontawesome.com/4ca0345904.js" crossorigin="anonymous"></script>
+    <script src="./libraries/loading-bar/loading-bar.js"></script>
+    <!-- <script type="text/javascript" src="setuserdata.js"></script> -->
+</body>
+</html>
